@@ -56,6 +56,9 @@ background-color: yellowgreen;
     border-radius: 50%;
     background-color: yellow;
 }
+button:hover{
+    border: 2px solid grey;
+}
 
 footer{
     height: 2rem;
