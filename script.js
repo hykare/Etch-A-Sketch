@@ -9,7 +9,7 @@ const rainbowButton = document.getElementById('rainbow');
 const clearButton = document.getElementById('clear');
 blackButton.addEventListener('click', setColorBlack);
 rainbowButton.addEventListener('click', setColorRainbow);
-
+clearButton.addEventListener('click', clearSketch);
 
 
 sketch.addEventListener('mouseover', fillSquare);
@@ -40,19 +40,17 @@ function setColorBlack() {
     squares.forEach(square => {
         square.style.backgroundColor = 'black';
     });
-
 }
 function setColorRainbow() {
     const squares = sketch.childNodes;
     squares.forEach(square => {
-
-        const hue = (Math.random()*360).toFixed(2);
-        console.log(hue)
+        const hue = (Math.random() * 360).toFixed(2);
         square.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
-
-
     });
-
-
-
+}
+function clearSketch() {
+    const squares = sketch.childNodes;
+    squares.forEach(square => {
+        square.style.opacity = '0';
+    });
 }
