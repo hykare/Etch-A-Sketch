@@ -51,8 +51,11 @@ main{
     width: 100%;
     margin: 5px 0;
     height: 10px;
-    background-color: yellowgreen;
+    /* border: 2px solid red; */
 /* margin-bottom: 1rem; */
+}
+#slider input{
+    width: 100%;
 }
 #sketch{
     display: grid;

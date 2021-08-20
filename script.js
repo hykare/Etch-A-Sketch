@@ -7,10 +7,11 @@ setUpGrid();
 const blackButton = document.getElementById('black');
 const rainbowButton = document.getElementById('rainbow');
 const clearButton = document.getElementById('clear');
+const slider = document.querySelector('input');
 blackButton.addEventListener('click', setColorBlack);
 rainbowButton.addEventListener('click', setColorRainbow);
 clearButton.addEventListener('click', clearSketch);
-
+slider.addEventListener('change', updateGridDivisions);
 
 sketch.addEventListener('mouseover', fillSquare);
 
@@ -53,4 +54,10 @@ function clearSketch() {
     squares.forEach(square => {
         square.style.opacity = '0';
     });
+}
+function updateGridDivisions(e) {
+    gridSize = e.target.valueAsNumber;
+    sketch.childNodes.forEach(square => square.remove());
+    setUpGrid();
+
 }
