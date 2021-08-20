@@ -38,7 +38,7 @@ function createGridSquares() {
 function setColorBlack() {
     const squares = sketch.childNodes;
     squares.forEach(square => {
-        square.style.backgroundColor = 'black';
+        square.style.backgroundColor = 'rgb(72, 15, 119)';
     });
 }
 function setColorRainbow() {
