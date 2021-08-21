@@ -1,19 +1,16 @@
 const sketch = document.getElementById("sketch");
-let gridSize = 32;
-setUpGrid();
-
-
-
 const blackButton = document.getElementById('black');
 const rainbowButton = document.getElementById('rainbow');
 const clearButton = document.getElementById('clear');
 const slider = document.querySelector('input');
+sketch.addEventListener('mouseover', fillSquare);
 blackButton.addEventListener('click', setColorBlack);
 rainbowButton.addEventListener('click', setColorRainbow);
 clearButton.addEventListener('click', clearSketch);
-slider.addEventListener('change', updateGridDivisions);
+slider.addEventListener('change', updateGrid);
 
-sketch.addEventListener('mouseover', fillSquare);
+let gridSize = 30;
+setUpGrid();
 
 function fillSquare(e) {
     currentOpacity = e.target.style.opacity;
@@ -22,14 +19,13 @@ function fillSquare(e) {
     }
     else e.target.style.opacity = `${+currentOpacity + 0.2}`;
 }
-
 function setUpGrid() {
     sketch.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     createGridSquares();
 }
 function createGridSquares() {
     for (let i = 0; i < gridSize * gridSize; i++) {
-        const square = document.createElement('div');
+        let square = document.createElement('div');
         square.classList.add('grid-square');
         square.style.width = '100%';
         square.style.height = '100%';
@@ -55,9 +51,8 @@ function clearSketch() {
         square.style.opacity = '0';
     });
 }
-function updateGridDivisions(e) {
+function updateGrid(e) {
     gridSize = e.target.valueAsNumber;
     sketch.childNodes.forEach(square => square.remove());
     setUpGrid();
-
 }
