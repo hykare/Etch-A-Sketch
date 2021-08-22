@@ -53,6 +53,6 @@ function clearSketch() {
 }
 function updateGrid(e) {
     gridSize = e.target.valueAsNumber;
-    sketch.childNodes.forEach(square => square.remove());
+    sketch.innerHTML = '';
     setUpGrid();
 }
